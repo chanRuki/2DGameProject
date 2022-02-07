@@ -6,12 +6,10 @@ public class PlayerManager : MonoBehaviour
 {
     private MappingManager mappingManager = null;
     private PlayerViewModel playerViewModel = null;
-    private BoxCollider playerCollider = null;
     private void Start()
     {
         mappingManager = GameManager.Instance.GetComponent<MappingManager>();
         playerViewModel = mappingManager.FetchPlayerData(GameManager.Instance.ModelDataBase.PlayerModel);
-        playerCollider = GetComponentInChildren<BoxCollider>();
     }
 
     public void OnPlayerMove()
@@ -26,8 +24,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void PlayerHpChange(int damege)
     {
-
+        playerViewModel.PlayerHp = playerViewModel.PlayerHp - damege;
+        Debug.Log($"HP :{playerViewModel.PlayerHp}");
     }
+
 }
