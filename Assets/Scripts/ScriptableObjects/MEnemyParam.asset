@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81862b9edcd3fac4b9e2f79d2febdd2d, type: 3}
-  m_Name: PlayerModel
+  m_Script: {fileID: 11500000, guid: 0bc455df191e4f442a0ee9d7f35c7080, type: 3}
+  m_Name: MEnemyParam
   m_EditorClassIdentifier: 
-  playerName: "\u540D\u7121\u3057"
-  hp: 500
+  hp: 200
   speed: 10
+  attack: 5
