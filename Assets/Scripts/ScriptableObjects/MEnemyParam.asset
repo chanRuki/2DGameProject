@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc455df191e4f442a0ee9d7f35c7080, type: 3}
   m_Name: MEnemyParam
   m_EditorClassIdentifier: 
-  hp: 200
+  enemyName: zako
+  hp: 5
   speed: 10
   attack: 5

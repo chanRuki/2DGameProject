@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     public void Initialized(MEnemyParam param)
     {
-        FetchEnemyStatus(param);
+        SetEnemyStatus(param);
     }
 
     public void EnemyUpdate()
@@ -27,11 +27,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            enemyStatus.Hp = enemyStatus.Hp - 50;
         }
     }
 
-    private EnemyStatus FetchEnemyStatus(MEnemyParam param)
+    private EnemyStatus SetEnemyStatus(MEnemyParam param)
     {
         if (!param)
         {
@@ -48,17 +47,25 @@ public class Enemy : MonoBehaviour
         enemyStatus.Hp = param.Hp;
         enemyStatus.Speed = param.Speed;
         enemyStatus.Attack = param.Attack;
+        enemyStatus.EnemyType = param.EnemyType;
 
         return enemyStatus;
     }
 
+    /// <summary>
+    /// 設定した引数のプロパティの数を調べる
+    /// </summary>
+    /// <typeparam name="T1"></typeparam>
+    /// <typeparam name="T2"></typeparam>
+    /// <param name="param"></param>
+    /// <param name="status"></param>
+    /// <returns></returns>
     private bool HasCheckProperties<T1, T2>(T1 param, T2 status)
     {
         var properties1 = typeof(T1)
             .GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly).Length;
         var properties2 = typeof(T2)
             .GetProperties(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly).Length;
-
         if (properties1 != properties2)
         {
             Debug.LogError("プロパティの数が不一致！！！");
