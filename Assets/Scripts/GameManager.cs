@@ -5,12 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
-    private ModelDataBase modelDataBase = null;
-    private GameObject player = null;
-    private int score;
+    [SerializeField]
+    private DataBase dataBase = null;
 
-    public ModelDataBase ModelDataBase { get => modelDataBase; }
-    public GameObject Player { get => player; }
+    public DataBase DataBase { get => dataBase; set => dataBase = value; }
     public static GameManager Instance
     {
         get
@@ -25,13 +23,5 @@ public class GameManager : MonoBehaviour
             }
             return instance;
         }
-    }
-    public int Score { get => score; set => score = value; }
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-        modelDataBase = GetComponent<ModelDataBase>();
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 }
