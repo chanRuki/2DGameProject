@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class EBattleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private EnemyManager enemyManager = null;
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        enemyManager.EnemyUpdate();
     }
 }
