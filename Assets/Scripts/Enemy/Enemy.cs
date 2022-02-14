@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
 
 
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
