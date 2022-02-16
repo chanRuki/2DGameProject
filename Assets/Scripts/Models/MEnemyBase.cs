@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Scrips.Models;
 
-[CreateAssetMenu(fileName = "MEnemyParam", menuName = "ScriptableObjects/Create/MEnemyParam")]
-public class MEnemyParam : ScriptableObject
+[CreateAssetMenu(fileName = "enemy name", menuName = "ScriptableObjects/Models/MEnemyBase")]
+public class MEnemyBase : ScriptableObject
 {
     [SerializeField]
     private string enemyName;
     public string EnemyName { get => enemyName; set => enemyName = value; }
     
     [SerializeField]
-    private int hp;
-    public int Hp { get => hp; set => hp = value; }
+    private float hp;
+    public float Hp { get => hp; set => hp = value; }
 
     [SerializeField]
-    private int speed;
-    public int Speed { get => speed; set => speed = value; }
+    private float speed;
+    public float Speed { get => speed; set => speed = value; }
 
     [SerializeField]
-    private int attack;
-    public int Attack { get => attack; set => attack = value; }
+    private float attack;
+    public float Attack { get => attack; set => attack = value; }
     
     [SerializeField]
     private Constans.EnemyType enemyType;

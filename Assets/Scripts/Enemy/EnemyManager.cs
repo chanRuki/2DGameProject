@@ -5,9 +5,12 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField]
+    private MEnemyBase enemyPram = null;
+    [SerializeField]
     private GameObject enemyPrefab = null;
     [SerializeField]
     private int enemyMax = 0;
+    
 
     private List<Enemy> enemies = new List<Enemy>();
 
@@ -15,13 +18,14 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < enemyMax; i++)
         {
-            CreateEnemy(GameManager.Instance.DataBase.MEnemyParam);
+            CreateEnemy(enemyPram);
         }
     }
 
-    public Enemy CreateEnemy(MEnemyParam param)
+    public Enemy CreateEnemy(MEnemyBase param)
     {
-        var enemyObj = Instantiate(enemyPrefab);
+        var enemyObj = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        enemyObj.transform.parent = this.transform;
         var enemy = enemyObj.GetComponent<Enemy>();
         if (enemy != null)
         {

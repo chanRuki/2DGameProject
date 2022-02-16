@@ -5,9 +5,16 @@ using UnityEngine;
 public class EBattleManager : MonoBehaviour
 {
     [SerializeField]
-    private EnemyManager enemyManager = null;
+    private EnemyManager enemyManager1 = null;
+    [SerializeField]
+    private EnemyManager enemyManager2 = null;
+    [SerializeField]
+    private EnemyManager enemyManager3 = null;
+
     private void Update()
     {
-        enemyManager.EnemyUpdate();
+        enemyManager1.EnemyUpdate();
+        enemyManager2.EnemyUpdate();
+        //enemyManager3.EnemyUpdate();
     }
 }

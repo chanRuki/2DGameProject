@@ -6,14 +6,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private EnemyStatus enemyStatus = null;
+    public EnemyStatus EnemyStatus { get => enemyStatus; set => enemyStatus = value; }
 
-    public void Initialized(MEnemyParam param)
+    public void Initialized(MEnemyBase param)
     {
         SetEnemyStatus(param);
     }
 
     public void EnemyUpdate()
     {
+        // ƒQ[ƒ€“à‚Ì“G‚Ì“®‚«‚Ìˆ—
+        transform.Translate(Vector3.down * EnemyStatus.Speed * Time.deltaTime);
+
         if (enemyStatus.Hp <= 0)
         {
             this.gameObject.SetActive(false);
@@ -30,7 +34,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private EnemyStatus SetEnemyStatus(MEnemyParam param)
+    private EnemyStatus SetEnemyStatus(MEnemyBase param)
     {
         if (!param)
         {
@@ -44,6 +48,7 @@ public class Enemy : MonoBehaviour
             return null;
         }
 
+        enemyStatus.EnemyName = param.EnemyName;
         enemyStatus.Hp = param.Hp;
         enemyStatus.Speed = param.Speed;
         enemyStatus.Attack = param.Attack;
