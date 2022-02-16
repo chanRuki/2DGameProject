@@ -10,7 +10,9 @@ public class EnemyManager : MonoBehaviour
     private GameObject enemyPrefab = null;
     [SerializeField]
     private int enemyMax = 0;
-    
+
+    public delegate void OnCompleteDelegate(string result);
+    public OnCompleteDelegate completeHandler;
 
     private List<Enemy> enemies = new List<Enemy>();
 
@@ -36,6 +38,13 @@ public class EnemyManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void ExeProcess()
+    {
+        Debug.Log("execution of the enemy creation process!!");
+
+        completeHandler?.Invoke("success");
     }
 
     public void EnemyUpdate()

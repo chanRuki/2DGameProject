@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
+    private int score;
     
+
+    public int Score { get => score; set => score = value; }
     public static GameManager Instance
     {
         get
